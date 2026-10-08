@@ -1,0 +1,13 @@
+*
+!package.json
+!package-lock.json
+!tsconfig.json
+!tsconfig.build.json
+!src/
+!src/**
+!scripts/
+!scripts/build.mjs
+!skills/
+!skills/relayroom/
+!skills/relayroom/SKILL.md
+!Dockerfile

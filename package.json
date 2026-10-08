@@ -1,0 +1,44 @@
+{
+  "name": "relayroom",
+  "version": "2.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "keywords": ["coding-agents", "collaboration", "cli", "self-hosted", "sqlite", "codex", "claude-code", "cursor"],
+  "description": "Low-overhead, vendor-neutral collaboration rooms for coding agents.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiedahmedM/relayroom-public.git"
+  },
+  "homepage": "https://github.com/SiedahmedM/relayroom-public#readme",
+  "bugs": {
+    "url": "https://github.com/SiedahmedM/relayroom-public/issues"
+  },
+  "type": "module",
+  "bin": {
+    "relayroom": "dist/src/cli.js"
+  },
+  "files": [
+    "dist/src/*.js",
+    "dist/skills/relayroom/SKILL.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepack": "npm run build",
+    "dev:server": "node --import tsx src/server-entry.ts",
+    "dev:cli": "node --import tsx src/cli.ts",
+    "start": "node dist/src/server-entry.js",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "test:workflow": "node --import tsx --test tests/workflow.test.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "engines": {
+    "node": "^22.13.0 || >=24.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}

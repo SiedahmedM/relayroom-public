@@ -1,0 +1,18 @@
+services:
+  relayroom:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8787:8787"
+    environment:
+      PORT: "8787"
+      RELAYROOM_DB: /data/relayroom.db
+      RELAYROOM_SECRET_PEPPER: ${RELAYROOM_SECRET_PEPPER:?set RELAYROOM_SECRET_PEPPER}
+      RELAYROOM_RETENTION_HOURS: ${RELAYROOM_RETENTION_HOURS:-72}
+      RELAYROOM_PUBLIC_URL: ${RELAYROOM_PUBLIC_URL:-http://127.0.0.1:8787}
+      RELAYROOM_TRUSTED_PROXIES: ${RELAYROOM_TRUSTED_PROXIES:-}
+    volumes:
+      - relayroom-data:/data
+
+volumes:
+  relayroom-data:
